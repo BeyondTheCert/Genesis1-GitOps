@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: blog
-        image: nginx:latest
+        image: ghcr.io/beyondthecert/beyondthecert-blog:latest
         ports:
         - containerPort: 80
