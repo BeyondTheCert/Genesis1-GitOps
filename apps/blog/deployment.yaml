@@ -16,5 +16,6 @@ spec:
       containers:
       - name: blog
         image: ghcr.io/beyondthecert/beyondthecert-blog:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
