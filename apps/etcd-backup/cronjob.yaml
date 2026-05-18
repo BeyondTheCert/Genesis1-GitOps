@@ -18,7 +18,7 @@ spec:
           hostNetwork: true
           containers:
           - name: etcd-backup
-            image: registry.k8s.io/etcd:3.5.16-0
+            image: bitnami/etcd:3.5.16
             env:
             - name: ETCDCTL_API
               value: "3"
