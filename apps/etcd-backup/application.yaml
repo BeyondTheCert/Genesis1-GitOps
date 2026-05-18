@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: etcd-backup
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/BeyondTheCert/Genesis1-GitOps.git
+    targetRevision: main
+    path: apps/etcd-backup
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

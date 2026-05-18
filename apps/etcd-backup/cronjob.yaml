@@ -1,0 +1,53 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: etcd-backup
+  namespace: kube-system
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            node-role.kubernetes.io/control-plane: ""
+          tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+            effect: NoSchedule
+          hostNetwork: true
+          containers:
+          - name: etcd-backup
+            image: registry.k8s.io/etcd:3.5.16-0
+            env:
+            - name: ETCDCTL_API
+              value: "3"
+            command:
+            - /bin/sh
+            - -c
+            - |
+              TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+              etcdctl snapshot save /backup/etcd-snapshot-${TIMESTAMP}.db \
+                --endpoints=https://127.0.0.1:2379 \
+                --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+                --cert=/etc/kubernetes/pki/etcd/server.crt \
+                --key=/etc/kubernetes/pki/etcd/server.key
+              echo "Backup complete: etcd-snapshot-${TIMESTAMP}.db"
+              ls -lt /backup/ | head -10
+              find /backup/ -name "etcd-snapshot-*.db" -mtime +7 -delete
+              echo "Old backups cleaned up"
+            volumeMounts:
+            - name: etcd-certs
+              mountPath: /etc/kubernetes/pki/etcd
+              readOnly: true
+            - name: backup
+              mountPath: /backup
+          restartPolicy: OnFailure
+          volumes:
+          - name: etcd-certs
+            hostPath:
+              path: /etc/kubernetes/pki/etcd
+          - name: backup
+            nfs:
+              server: 192.168.1.69
+              path: /volume1/backups
