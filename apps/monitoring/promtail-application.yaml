@@ -13,6 +13,10 @@ spec:
       valuesObject:
         config:
           lokiAddress: http://loki-gateway.monitoring.svc.cluster.local/loki/api/v1/push
+        resources:
+          requests:
+            cpu: 25m
+            memory: 250Mi
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

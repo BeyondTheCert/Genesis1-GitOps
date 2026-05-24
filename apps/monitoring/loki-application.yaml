@@ -24,12 +24,28 @@ spec:
             enabled: true
             size: 10Gi
             storageClass: nfs-loki
+          resources:
+            requests:
+              cpu: 12m
+              memory: 125Mi
         read:
           replicas: 0
         write:
           replicas: 0
         backend:
           replicas: 0
+        chunksCache:
+          resources:
+            requests:
+              cpu: 12m
+              memory: 125Mi
+          allocatedMemory: 128
+        resultsCache:
+          resources:
+            requests:
+              cpu: 12m
+              memory: 125Mi
+          allocatedMemory: 128
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

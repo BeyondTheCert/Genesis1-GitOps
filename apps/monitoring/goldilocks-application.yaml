@@ -9,6 +9,18 @@ spec:
     repoURL: https://charts.fairwinds.com/stable
     chart: goldilocks
     targetRevision: 10.3.0
+    helm:
+      valuesObject:
+        controller:
+          resources:
+            requests:
+              cpu: 25m
+              memory: 250Mi
+        dashboard:
+          resources:
+            requests:
+              cpu: 25m
+              memory: 250Mi
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

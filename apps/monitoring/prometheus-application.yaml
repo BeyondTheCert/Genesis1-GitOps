@@ -9,6 +9,28 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: kube-prometheus-stack
     targetRevision: 83.0.1
+    helm:
+      valuesObject:
+        grafana:
+          resources:
+            requests:
+              cpu: 8m
+              memory: 88Mi
+        prometheusOperator:
+          resources:
+            requests:
+              cpu: 25m
+              memory: 250Mi
+        kube-state-metrics:
+          resources:
+            requests:
+              cpu: 25m
+              memory: 250Mi
+        prometheus-node-exporter:
+          resources:
+            requests:
+              cpu: 25m
+              memory: 250Mi
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
