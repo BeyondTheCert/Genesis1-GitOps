@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: goldpinger
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://okgolove.github.io/helm-charts
+    chart: goldpinger
+    targetRevision: 6.2.0
+    helm:
+      valuesObject:
+        tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true

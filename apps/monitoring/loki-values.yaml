@@ -1,0 +1,20 @@
+USER-SUPPLIED VALUES:
+backend:
+  replicas: 0
+deploymentMode: SingleBinary
+loki:
+  commonConfig:
+    replication_factor: 1
+  storage:
+    type: filesystem
+  useTestSchema: true
+read:
+  replicas: 0
+singleBinary:
+  persistence:
+    enabled: true
+    size: 10Gi
+    storageClass: nfs-loki
+  replicas: 1
+write:
+  replicas: 0
