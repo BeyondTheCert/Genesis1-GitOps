@@ -16,6 +16,8 @@ spec:
             enabled: true
             storageClass: nfs-quantified-self
             size: 5Gi
+          extraEnvVars:
+            N8N_SECURE_COOKIE: "false"
         ingress:
           enabled: true
           className: nginx
