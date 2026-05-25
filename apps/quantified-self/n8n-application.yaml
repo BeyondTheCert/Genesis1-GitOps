@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: n8n
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://community-charts.github.io/helm-charts
+    chart: n8n
+    targetRevision: 1.16.42
+    helm:
+      valuesObject:
+        main:
+          persistence:
+            enabled: true
+            storageClass: nfs-quantified-self
+            size: 5Gi
+        ingress:
+          enabled: true
+          className: nginx
+          hosts:
+            - host: n8n.beyondthecert.dev
+              paths:
+                - path: /
+                  pathType: Prefix
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: quantified-self
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
