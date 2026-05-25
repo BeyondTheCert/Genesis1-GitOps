@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: influxdb
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://helm.influxdata.com
+    chart: influxdb2
+    targetRevision: 2.1.2
+    helm:
+      valuesObject:
+        adminUser:
+          user: admin
+          organization: genesis1
+          bucket: quantified-self
+        persistence:
+          enabled: true
+          storageClass: nfs-quantified-self
+          size: 10Gi
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: quantified-self
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
