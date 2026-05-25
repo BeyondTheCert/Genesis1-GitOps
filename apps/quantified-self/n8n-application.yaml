@@ -18,6 +18,7 @@ spec:
             size: 5Gi
           extraEnvVars:
             N8N_SECURE_COOKIE: "false"
+            N8N_ENCRYPTION_KEY: "58452ac23dbb0eca06aaf4eb779c92c5"
         ingress:
           enabled: true
           className: nginx
