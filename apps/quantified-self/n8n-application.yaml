@@ -20,7 +20,7 @@ spec:
           enabled: true
           className: nginx
           hosts:
-            - host: n8n.beyondthecert.dev
+            - host: n8n.home
               paths:
                 - path: /
                   pathType: Prefix
