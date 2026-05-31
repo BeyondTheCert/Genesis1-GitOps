@@ -20,13 +20,7 @@ spec:
             N8N_SECURE_COOKIE: "false"
             N8N_ENCRYPTION_KEY: "58452ac23dbb0eca06aaf4eb779c92c5"
         ingress:
-          enabled: true
-          className: nginx
-          hosts:
-            - host: n8n.home
-              paths:
-                - path: /
-                  pathType: Prefix
+          enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: quantified-self
