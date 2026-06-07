@@ -19,6 +19,7 @@ spec:
           extraEnvVars:
             N8N_SECURE_COOKIE: "false"
             N8N_ENCRYPTION_KEY: "800bda45e045961b0aa9a0c3e92944f4"
+          extraEnvVarsSecret: n8n-credentials
         ingress:
           enabled: false
   destination:
