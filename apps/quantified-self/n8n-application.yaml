@@ -11,6 +11,7 @@ spec:
     targetRevision: 1.16.42
     helm:
       valuesObject:
+        existingEncryptionKeySecret: n8n-encryption-key
         main:
           persistence:
             enabled: true
@@ -18,7 +19,6 @@ spec:
             size: 5Gi
           extraEnvVars:
             N8N_SECURE_COOKIE: "false"
-            N8N_ENCRYPTION_KEY: "800bda45e045961b0aa9a0c3e92944f4"
           extraSecretNamesForEnvFrom:
             - n8n-credentials
         ingress:

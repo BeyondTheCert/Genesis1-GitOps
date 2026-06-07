@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: n8n-encryption-key
+  namespace: quantified-self
+spec:
+  encryptedData:
+    N8N_ENCRYPTION_KEY: AgCXL4PtLB5XYkHiY4WrYnmokafeDtH8FtHMQbQUNHKH9v1k+S1FzC/IApD9DGBCb24j9BI4zZCDUUgnDd3EdwQxxdn67zLQ4YPJzbnnYh5xIQBQc+BmDlCeVqS+CM6uf4UXJqqimRSuBatqqYl1GEeh/TsJWrr6z102A4aeq2Bt7EX1KrR3RscB/C4NL8Ly4vuyRZgY0jEfQnBBaIqxzx+btxu0fe7JhdDsAM/T52Pfn7TiRhNnrWkopai26f20GJ3mFiOkKKcM96bBcbLcpsHBaQfAxjxbhDCVNLCiWo3KLLELbKawijqnXiqdWvw0cokpl3QAcFB3t6+2sMDWlHHmKAszf3IDSyZ6x1TT99Jt9uoxdQ45wU5Vva3ec3ObWFPqigQ07oeaMBM72SgTldfbWKiQrXr0YgkGgdJQjo5X5SDZDNMYIQ5jDv1Im3UUY8kgblV4RPFHPoHYs8SXQtmDLzv2stN6YQwHhiR9jWd6uBO+gF26nAxSOW+2fBD/QQ6wqN9c9KEutDacKFu+0wiXH3tLCWrTFzGZ9hn9gx34mR6GT2QL0BGe7Y8qpHtubSf2enNJ+pB7gJ62wjVfGzjbcjIj6XBjljFzOwBZ8oJcA65O2++mDXvz4XbtaVpGSaMAd/4FYZWES6DcVLNL0stq+f1XZlZytECxwcOEoWVR3UkqFInzvSapOHHYgkxsmGeZkjx3xGWucEpo7U/jm2U8rE91JURyV6NYEIHX2vkWwA==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: n8n-encryption-key
+      namespace: quantified-self
