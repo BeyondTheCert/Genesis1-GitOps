@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: influxdb-backup-token
+  namespace: quantified-self
+spec:
+  encryptedData:
+    token: AgAaf8BYwUBYeHeViJRMs02p1SXeSsO08LjHxGOhT8DkljuNsd6yDe9QpYbF6cwSqVjPYFSwjIkN63cN7iWduXbIkv07gJlI1xq/0Pl1gg5pWVuGWGIb0ULmbfZeei1iifkhOIb0aAMDC67XLpJCIjmAgqPNhK3yGmIm7KcwPtU7m+owFfGwyBWdEUcjRtnKuW7B/keTNQGW6t8QEf05XrOy1gJ1xHD4N1KA6rcGUt/OQdVIuegvr06vVNsV2TLHwsJNLhlRuBw4Y10Sw42hflENxkYI3kGNr3XvljhKTxC4qcBKll3MaLV90NBqtqj/emKJ8RWgnSyc+hjBGuPMnPDbsL9Y2hlaNvI9+IvXb8cautcnuKLF0iOqv7XMlLnCtLbdp3kvHYKWwYxU6C6KM1v1WYiUF+R8jMpj/7t+nU3Z/iYxtjwRBoGGG+1azqnBxruB5GoFDxJ6KsXOv6QUOd1sLvX7JLW1XRYBkOCiaowP45ywDSyhzh+SNoWhwIif0NQGmelR1EqmJJ+8vYl+/xMsxY44hqCuHrf/aTbmCzMoJHuhwqhMrXL0L5D3FYGUsqz8wsDwUpViBqOJMThVku62CY0u6ljHnSInrqlut79ESvyNHe1Us1SR/bX4UxswhH+6JiWalI1UCBYviFK7k7WcM8+hApaBChDd0Rrsk4a9GOZ8UUHmd7RyPosP5k8WkEKCr00FXHd7lZTevTwlYAwHk5Z+NJaJk6erdAYQRE7K3ObIBt8rikb6532MB1l4akKfJvAfnxxZf0SJyfTA4rkGo7WSUPTt75t3eatpc2003r14M05nbrDQ
+  template:
+    metadata:
+      creationTimestamp: null
+      name: influxdb-backup-token
+      namespace: quantified-self
