@@ -22,7 +22,13 @@ spec:
           extraSecretNamesForEnvFrom:
             - n8n-credentials
         ingress:
-          enabled: false
+          enabled: true
+          className: nginx
+          hosts:
+            - host: n8n.home
+              paths:
+                - path: /
+                  pathType: Prefix
   destination:
     server: https://kubernetes.default.svc
     namespace: quantified-self
